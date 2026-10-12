@@ -1,6 +1,6 @@
 # grumatic/tap
 
-Homebrew formulae for [brainyard-jolt](https://github.com/grumatic/brainyard-jolt):
+Homebrew formulae for **byj** and **byj-share**, and their release binaries:
 
 - **byj** — brainyard's agent runtime on jolt
 - **byj-share** — shares a byj or Claude Code session through the Brainyard Share relay
@@ -9,25 +9,40 @@ Both are released for macOS (Apple silicon and Intel) and Linux (x86-64).
 
 ## Installing
 
-The tap and the release assets are private, so Homebrew needs to reach both:
-
 ```bash
-brew tap grumatic/tap git@github.com:grumatic/homebrew-tap.git   # an ssh key that can read this repo
-brew trust grumatic/tap                                           # Homebrew 7 asks before using a tap
-export HOMEBREW_GITHUB_API_TOKEN=…                                # a token that can read grumatic/brainyard-jolt
+brew tap grumatic/tap
 brew install grumatic/tap/byj grumatic/tap/byj-share
 ```
 
-`HOMEBREW_GITHUB_API_TOKEN` must be set whenever Homebrew downloads a new
-version (`brew install`, `brew upgrade`): a formula fetches its asset through
-the GitHub API with it. `gh auth token` prints one for the account `gh` is
-signed in as. Without it, the download fails with a 404.
+No GitHub account or token is needed. Homebrew 7 may ask you to
+`brew trust grumatic/tap` before it uses the tap.
 
 `brew upgrade byj byj-share` updates them. `byj update` refuses a Homebrew
 install and says so.
 
-## Where the formulae come from
+### Without Homebrew
 
-`Formula/*.rb` are written by `dev/brew-formula.sh` in brainyard-jolt from a
-published release — the release workflow pushes them here — and are not edited
-by hand. See brainyard-jolt's RFC-029, "Homebrew".
+Each release's binaries are on this repository's
+[Releases](https://github.com/grumatic/homebrew-tap/releases) page, with a
+`SHA256SUMS` to check them against:
+
+```bash
+v=0.3.0; p=macos-arm64          # or macos-amd64, linux-amd64
+curl -fLO "https://github.com/grumatic/homebrew-tap/releases/download/v$v/byj-$v-$p"
+curl -fLO "https://github.com/grumatic/homebrew-tap/releases/download/v$v/SHA256SUMS"
+shasum -a 256 -c --ignore-missing SHA256SUMS
+chmod +x "byj-$v-$p" && mv -f "byj-$v-$p" ~/.local/bin/byj
+```
+
+A binary installed this way updates itself with `byj update`. v0.3.0 still
+looks for releases in the private source repository; give it this one with
+`:update-source "grumatic/homebrew-tap"` in `~/.brainyard/config.edn`. Later
+releases look here by default. On macOS byj needs Homebrew's `openssl@3`
+(`brew install openssl@3`).
+
+## Where this comes from
+
+The releases and `Formula/*.rb` are published here by brainyard-jolt's release
+workflow — each release copied from the source repository, and the formulae
+written from that copy by its `dev/brew-formula.sh` — and are not edited by
+hand.
