@@ -50,6 +50,51 @@ download v0.3.1 or later as above. On macOS byj needs Homebrew's `openssl@3`
 (`brew install openssl@3`). byj-share is downloaded the same way, as
 `byj-share-$v-$p`.
 
+## Sharing your sessions
+
+`byj-share` shares a coding-agent session — byj, Claude Code or Codex — with
+people you invite. They watch it live in a browser: every turn, tool call and
+answer, and its terminal when the session runs in tmux. Nothing runs on the
+relay; the session stays on your machine.
+
+**Sign in once** on each machine:
+
+```bash
+byj-share login        # shows a code and a link; approve the code in the browser
+byj-share doctor       # checks the sign-in, the relay and tmux
+```
+
+**Share a session** — whichever fits how you work:
+
+```bash
+byj run --share link            # start a byj session, shared from the start
+byj-share exec -- claude        # run Claude Code here, shared while it runs
+byj-share exec -- byj run       # the same for byj
+
+byj-share ls                    # sessions in this project you can share
+byj-share start byj:latest      # share one that is already running
+byj-share start claude:5f0c1d2e # a Claude Code session, by id (a prefix will do)
+```
+
+In a running byj session, `/share start` shares it. Each share prints its page
+and two invite links: a **coach** link (watch, leave notes, and ask for a turn
+you approve at the terminal) and a **watch** link (watch only). Make more links,
+pause, or remove someone from the **Owner console** on the share's page.
+
+**Keep track of it:**
+
+```bash
+byj-share status               # what is shared, where, who is watching
+byj-share pause SHARE|REF      # viewers see nothing new until resume
+byj-share stop SHARE|REF       # or --all
+```
+
+**More:** `--record` keeps a share for review when it ends, and
+`byj-share record --turns 12-30` uploads a range of past turns for review;
+several references to `byj-share start` share them as one group; and
+`byj run --share class:CODE` shares into a class your instructor runs. The full
+guide is at <https://share.grumatic.com/docs>.
+
 ## Where this comes from
 
 The releases and `Formula/*.rb` are published here by brainyard-jolt's release
