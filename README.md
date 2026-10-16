@@ -48,6 +48,42 @@ last update replaced; a Homebrew install has none to go back to. `byj doctor`
 lists the copies on your `PATH`, with each one's version and where it came
 from, and points out an old one shadowed by another.
 
+#### When `brew upgrade` says it is already installed
+
+`brew upgrade` compares what is installed with the formula in your local
+copy of this tap. If it says an older version is already installed, that
+copy has not been refreshed since that release. Check which commit it is on
+and where it fetches from:
+
+```bash
+git -C "$(brew --repo grumatic/tap)" log --oneline -1
+git -C "$(brew --repo grumatic/tap)" remote -v
+echo "HOMEBREW_NO_AUTO_UPDATE=$HOMEBREW_NO_AUTO_UPDATE"
+```
+
+Then refresh it and upgrade:
+
+```bash
+brew update
+brew info grumatic/tap/byj | head -1     # the version this tap now has
+brew upgrade grumatic/tap/byj grumatic/tap/byj-share grumatic/tap/byj-a2a
+```
+
+- **`HOMEBREW_NO_AUTO_UPDATE` is set:** `brew upgrade` never refreshes the
+  tap on its own. Run `brew update` first, as above.
+- **`brew update` says it failed to update `grumatic/tap`:** the tap was
+  probably added with `git@github.com:grumatic/homebrew-tap.git`, from
+  before the tap was public, and this machine cannot fetch over SSH. Point
+  it at the public address, then run `brew update` again:
+
+  ```bash
+  git -C "$(brew --repo grumatic/tap)" remote set-url origin https://github.com/grumatic/homebrew-tap
+  ```
+
+`byj update` cannot do this for a byj older than 0.3.3, which refuses a
+Homebrew install instead of running `brew upgrade`; upgrade it with
+`brew` once, as above.
+
 ### Without Homebrew
 
 Each release's binaries are on this repository's
