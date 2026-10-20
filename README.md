@@ -91,7 +91,7 @@ Each release's binaries are on this repository's
 `SHA256SUMS` to check them against:
 
 ```bash
-v=0.3.4; p=macos-arm64          # or macos-amd64, linux-amd64
+v=0.3.5; p=macos-arm64          # or macos-amd64, linux-amd64
 curl -fLO "https://github.com/grumatic/homebrew-tap/releases/download/v$v/byj-$v-$p"
 curl -fLO "https://github.com/grumatic/homebrew-tap/releases/download/v$v/SHA256SUMS"
 shasum -a 256 -c --ignore-missing SHA256SUMS
