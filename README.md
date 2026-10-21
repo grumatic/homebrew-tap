@@ -88,10 +88,12 @@ Homebrew install instead of running `brew upgrade`; upgrade it with
 
 Each release's binaries are on this repository's
 [Releases](https://github.com/grumatic/homebrew-tap/releases) page, with a
-`SHA256SUMS` to check them against:
+`SHA256SUMS` to check them against. This fetches the latest release; to get an
+earlier one, set `v` yourself instead (`v=0.3.5`):
 
 ```bash
-v=0.3.5; p=macos-arm64          # or macos-amd64, linux-amd64
+p=macos-arm64                   # or macos-amd64, linux-amd64
+v=$(curl -fsSLI -o /dev/null -w '%{url_effective}' https://github.com/grumatic/homebrew-tap/releases/latest | sed 's#.*/tag/v##')
 curl -fLO "https://github.com/grumatic/homebrew-tap/releases/download/v$v/byj-$v-$p"
 curl -fLO "https://github.com/grumatic/homebrew-tap/releases/download/v$v/SHA256SUMS"
 shasum -a 256 -c --ignore-missing SHA256SUMS
