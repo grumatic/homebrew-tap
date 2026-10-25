@@ -1,23 +1,23 @@
-# Written by dev/brew-formula.sh in grumatic/brainyard-jolt from grumatic/homebrew-tap's v0.3.7 release — regenerate it, do not edit.
+# Written by dev/brew-formula.sh in grumatic/brainyard-jolt from grumatic/homebrew-tap's v0.3.8 release — regenerate it, do not edit.
 class ByjShare < Formula
   desc "Shares a byj or Claude Code session through the Brainyard Share relay"
   homepage "https://github.com/grumatic/homebrew-tap"
-  version "0.3.7"
+  version "0.3.8"
 
   on_macos do
     on_arm do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.7/byj-share-0.3.7-macos-arm64"
-      sha256 "869483a4ac8c0f0d79f6016415876b0092c0450e6979bc3d0b87dcc5a837f56d"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.8/byj-share-0.3.8-macos-arm64"
+      sha256 "0e0eec227420cab38171055e3e217523dd1fcc67c42ac92bfbefd4d50fc4798a"
     end
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.7/byj-share-0.3.7-macos-amd64"
-      sha256 "b45b2bf1061145ba6c3f0d69f7c1e83dd6694d640ad011cd3fb8b39d55c0ca61"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.8/byj-share-0.3.8-macos-amd64"
+      sha256 "f1cc74d7215e481f6d64e879f7bf235d1b9180698699eebdd004cc3ae7f827b7"
     end
   end
   on_linux do
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.7/byj-share-0.3.7-linux-amd64"
-      sha256 "bdf9a9a88bd10b1787ca9240b5ea1c08843c3d6943775e95213892f48b48813b"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.8/byj-share-0.3.8-linux-amd64"
+      sha256 "a76019ada1ed0525de71e700f887f720f0ba617b3cd9ea6a2fcbdb5409460811"
     end
   end
 
@@ -26,6 +26,6 @@ class ByjShare < Formula
   end
 
   test do
-    assert_match "byj-share 0.3.7", shell_output("#{bin}/byj-share version")
+    assert_match "byj-share 0.3.8", shell_output("#{bin}/byj-share version")
   end
 end
