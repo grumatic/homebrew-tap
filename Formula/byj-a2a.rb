@@ -1,23 +1,23 @@
-# Written by dev/brew-formula.sh in grumatic/brainyard-jolt from grumatic/homebrew-tap's v0.3.9 release — regenerate it, do not edit.
+# Written by dev/brew-formula.sh in grumatic/brainyard-jolt from grumatic/homebrew-tap's v0.3.10 release — regenerate it, do not edit.
 class ByjA2a < Formula
   desc "byj's agents over the Agent2Agent protocol, and remote agents as byj's tools"
   homepage "https://github.com/grumatic/homebrew-tap"
-  version "0.3.9"
+  version "0.3.10"
 
   on_macos do
     on_arm do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.9/byj-a2a-0.3.9-macos-arm64"
-      sha256 "ac44ef09916b36805103ed78179ce81edcf536af6714a95b916abfe57934aa78"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.10/byj-a2a-0.3.10-macos-arm64"
+      sha256 "4c07f2a10699710b95452c884c98619e2b1b78ee324b88dc47922c647a026312"
     end
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.9/byj-a2a-0.3.9-macos-amd64"
-      sha256 "ebc6e9ecb071ed6ac972115d291ec092d54f866ad8a1506e21893fc394ef40e0"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.10/byj-a2a-0.3.10-macos-amd64"
+      sha256 "eef32d95cce211af6f450a1aece69dce241500d6d234127aa63fe5a9260f7e50"
     end
   end
   on_linux do
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.9/byj-a2a-0.3.9-linux-amd64"
-      sha256 "166fe425bc8397d7e6c6e7952cfc7cf361a0a5dea2ed9834fba3ff59d152acd9"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.10/byj-a2a-0.3.10-linux-amd64"
+      sha256 "ccc80e9e59108d8d048687b0c4487f1ab0d820c6bb1959d88a71e2a09dd3f1da"
     end
   end
 
@@ -26,6 +26,6 @@ class ByjA2a < Formula
   end
 
   test do
-    assert_match "byj-a2a 0.3.9", shell_output("#{bin}/byj-a2a version")
+    assert_match "byj-a2a 0.3.10", shell_output("#{bin}/byj-a2a version")
   end
 end
