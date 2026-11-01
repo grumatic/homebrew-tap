@@ -1,24 +1,24 @@
-# Written by dev/brew-formula.sh in grumatic/brainyard-jolt from grumatic/homebrew-tap's v0.3.12 release — regenerate it, do not edit.
+# Written by dev/brew-formula.sh in grumatic/brainyard-jolt from grumatic/homebrew-tap's v0.3.13 release — regenerate it, do not edit.
 class Byj < Formula
   desc "brainyard's agent runtime on jolt"
   homepage "https://github.com/grumatic/homebrew-tap"
-  version "0.3.12"
+  version "0.3.13"
 
   on_macos do
     depends_on "openssl@3"
     on_arm do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.12/byj-0.3.12-macos-arm64"
-      sha256 "1e5500d1229635db14741b6a7e0e3aaa0ab77f9b888dc0c5584a1f5d49f3deec"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.13/byj-0.3.13-macos-arm64"
+      sha256 "08679593fffe09c4dd005ff7fea9377c6e43b85ae0cb8bf24cf4c80b086fb80a"
     end
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.12/byj-0.3.12-macos-amd64"
-      sha256 "748bca74acd2f28994cd04f5acc4bfbe339d47d6d225b186635013d9eefcaec5"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.13/byj-0.3.13-macos-amd64"
+      sha256 "f355e2b0ea6d091ac1b77abd4ffaad378a2fb5214dedb842570129d490de4495"
     end
   end
   on_linux do
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.12/byj-0.3.12-linux-amd64"
-      sha256 "2cab93cb97583ffc61da494dc71110564714eb0ca5c977fd86b02319ddd784ed"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.13/byj-0.3.13-linux-amd64"
+      sha256 "9c693a778caa346321db62d5320186e465fa1c64d96a1bab7619312d1644fcc4"
     end
   end
 
@@ -27,6 +27,6 @@ class Byj < Formula
   end
 
   test do
-    assert_match "byj v0.3.12 ", shell_output("#{bin}/byj --version")
+    assert_match "byj v0.3.13 ", shell_output("#{bin}/byj --version")
   end
 end
