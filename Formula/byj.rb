@@ -1,28 +1,28 @@
-# Written by byj's dev/brew-formula.sh from grumatic/homebrew-tap's v0.3.19 release — regenerate it, do not edit.
+# Written by byj's dev/brew-formula.sh from grumatic/homebrew-tap's v0.3.20 release — regenerate it, do not edit.
 class Byj < Formula
   desc "brainyard's agent runtime on jolt"
   homepage "https://github.com/grumatic/homebrew-tap"
-  version "0.3.19"
+  version "0.3.20"
 
   on_macos do
     depends_on "openssl@3"
     on_arm do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.19/byj-0.3.19-macos-arm64"
-      sha256 "43e0b4970b7465094000a5e0af00ad2db1aac980b8ab0c717c37fa84bd460af1"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.20/byj-0.3.20-macos-arm64"
+      sha256 "4de3a3b83102ee27580f9b8701f09cebdafe1e9d5ae6dd678d6652d23a9d8845"
     end
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.19/byj-0.3.19-macos-amd64"
-      sha256 "6f6b6c932be10caf262974fcc5b82d9e2a6e2d8228ffd27b7f1844e0c8f3be1e"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.20/byj-0.3.20-macos-amd64"
+      sha256 "bb9cbcf26c54a073447093445ff12133c44666b86537ea7b00227d6e03688b89"
     end
   end
   on_linux do
     on_arm do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.19/byj-0.3.19-linux-arm64"
-      sha256 "bab6b66b194d16be13d60944973eff7247fbce4b0d3b1f40a020b348470a23bc"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.20/byj-0.3.20-linux-arm64"
+      sha256 "5b637ad4b4c181486235ecf901934d63cf7ff9073a1c85e0f58bdb3dfc714683"
     end
     on_intel do
-      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.19/byj-0.3.19-linux-amd64"
-      sha256 "8f8d0ba2bcd88151232df029bc8a09e7ddbe842f825fe1fbe6586b6281996769"
+      url "https://github.com/grumatic/homebrew-tap/releases/download/v0.3.20/byj-0.3.20-linux-amd64"
+      sha256 "8817a743a02d8140fc3e6e4d53470c96e60619b1e80fb0e5fb8546dc974a355b"
     end
   end
 
@@ -31,6 +31,6 @@ class Byj < Formula
   end
 
   test do
-    assert_match "byj v0.3.19 ", shell_output("#{bin}/byj --version")
+    assert_match "byj v0.3.20 ", shell_output("#{bin}/byj --version")
   end
 end
