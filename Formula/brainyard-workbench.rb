@@ -1,10 +1,10 @@
-# Written by brainyard-apps' dev/workbench-release.sh from grumatic/homebrew-tap's workbench-v0.2.3 release — regenerate it, do not edit.
+# Written by brainyard-apps' dev/workbench-release.sh from grumatic/homebrew-tap's workbench-v0.2.4 release — regenerate it, do not edit.
 class BrainyardWorkbench < Formula
   desc "Web workbench for byj, the coding agent: sessions, terminals, files and changes"
   homepage "https://github.com/grumatic/homebrew-tap"
-  url "https://github.com/grumatic/homebrew-tap/releases/download/workbench-v0.2.3/brainyard-workbench-0.2.3.tar.gz"
-  sha256 "690dc68bb63245b62a249262dee6d2e75cb747d07d936f74e3e8e3064ff975f1"
-  version "0.2.3"
+  url "https://github.com/grumatic/homebrew-tap/releases/download/workbench-v0.2.4/brainyard-workbench-0.2.4.tar.gz"
+  sha256 "106289bc72d37f649447387c5684a21120a6703fa8477366ec918248e633e150"
+  version "0.2.4"
 
   depends_on :macos
   depends_on "node"
@@ -28,6 +28,6 @@ class BrainyardWorkbench < Formula
   end
 
   test do
-    assert_match "brainyard-workbench 0.2.3", shell_output("#{bin}/brainyard-workbench --version")
+    assert_match "brainyard-workbench 0.2.4", shell_output("#{bin}/brainyard-workbench --version")
   end
 end
