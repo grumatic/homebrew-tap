@@ -8,7 +8,10 @@ class BrainyardWorkbench < Formula
 
   depends_on :macos
   depends_on "node"
+  depends_on "git"
   depends_on "grumatic/tap/byj"
+  depends_on "grumatic/tap/byj-share"
+  depends_on "tmux"
 
   def install
     # the menu bar item (--tray, decision 0019): AppKit only, built for this Mac
